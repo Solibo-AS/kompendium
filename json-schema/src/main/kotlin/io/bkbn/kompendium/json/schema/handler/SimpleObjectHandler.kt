@@ -57,7 +57,7 @@ object SimpleObjectHandler {
         val enrichedSchema = propEnrichment?.applyToSchema(schema) ?: schema
 
         val nullCheckSchema = when (prop.returnType.isMarkedNullable && !enrichedSchema.isNullable()) {
-          true -> OneOfDefinition(NullableDefinition(), enrichedSchema)
+          true -> OneOfDefinition(enrichedSchema, NullableDefinition())
           false -> enrichedSchema
         }
 

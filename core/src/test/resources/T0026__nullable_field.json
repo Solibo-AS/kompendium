@@ -59,10 +59,10 @@
           "a": {
             "oneOf": [
               {
-                "type": "null"
+                "type": "string"
               },
               {
-                "type": "string"
+                "type": "null"
               }
             ]
           }

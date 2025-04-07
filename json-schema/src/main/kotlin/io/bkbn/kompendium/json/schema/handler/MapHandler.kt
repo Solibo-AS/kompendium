@@ -40,7 +40,7 @@ object MapHandler {
       }
     val definition = MapDefinition(valueSchema)
     return when (type.isMarkedNullable) {
-      true -> OneOfDefinition(NullableDefinition(), definition)
+      true -> OneOfDefinition(definition, NullableDefinition())
       false -> definition
     }
   }

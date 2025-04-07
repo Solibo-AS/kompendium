@@ -41,10 +41,10 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "type": "null"
+                      "$ref": "#/components/schemas/TestResponse"
                     },
                     {
-                      "$ref": "#/components/schemas/TestResponse"
+                      "type": "null"
                     }
                   ]
                 }

@@ -199,8 +199,8 @@ object Helpers {
         MediaType(
           schema = if (this.isMarkedNullable) {
             OneOfDefinition(
+              ReferenceDefinition(this.getReferenceSlug(enrichment)),
               NullableDefinition(),
-              ReferenceDefinition(this.getReferenceSlug(enrichment))
             )
           } else {
             ReferenceDefinition(this.getReferenceSlug(enrichment))

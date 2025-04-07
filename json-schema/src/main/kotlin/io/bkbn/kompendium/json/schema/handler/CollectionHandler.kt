@@ -38,7 +38,7 @@ object CollectionHandler {
       }
     val definition = ArrayDefinition(typeSchema)
     return when (type.isMarkedNullable) {
-      true -> OneOfDefinition(NullableDefinition(), definition)
+      true -> OneOfDefinition(definition, NullableDefinition())
       false -> definition
     }
   }
