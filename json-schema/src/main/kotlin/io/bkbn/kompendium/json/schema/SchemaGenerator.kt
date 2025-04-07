@@ -67,7 +67,7 @@ object SchemaGenerator {
     }
 
   private fun checkForNull(type: KType, schema: JsonSchema): JsonSchema = when (type.isMarkedNullable) {
-    true -> OneOfDefinition(NullableDefinition(), schema)
+    true -> OneOfDefinition(schema, NullableDefinition())
     false -> schema
   }
 

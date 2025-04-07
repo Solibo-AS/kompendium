@@ -59,31 +59,31 @@
           "metadata": {
             "oneOf": [
               {
-                "type": "null"
+                "$ref": "#/components/schemas/ProfileMetadataUpdateRequest"
               },
               {
-                "$ref": "#/components/schemas/ProfileMetadataUpdateRequest"
+                "type": "null"
               }
             ]
           },
           "mood": {
             "oneOf": [
               {
-                "type": "null"
+                "type": "string"
               },
               {
-                "type": "string"
+                "type": "null"
               }
             ]
           },
           "viewCount": {
             "oneOf": [
               {
-                "type": "null"
-              },
-              {
                 "type": "number",
                 "format": "int64"
+              },
+              {
+                "type": "null"
               }
             ]
           }
@@ -96,20 +96,20 @@
           "isPrivate": {
             "oneOf": [
               {
-                "type": "null"
+                "type": "boolean"
               },
               {
-                "type": "boolean"
+                "type": "null"
               }
             ]
           },
           "otherThing": {
             "oneOf": [
               {
-                "type": "null"
+                "type": "string"
               },
               {
-                "type": "string"
+                "type": "null"
               }
             ]
           }

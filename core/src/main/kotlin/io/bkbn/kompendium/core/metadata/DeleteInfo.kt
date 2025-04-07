@@ -4,6 +4,7 @@ import io.bkbn.kompendium.oas.common.ExternalDocumentation
 import io.bkbn.kompendium.oas.payload.Parameter
 
 class DeleteInfo private constructor(
+  override val request: RequestInfo?,
   override val response: ResponseInfo,
   override val errors: MutableList<ResponseInfo>,
   override val tags: Set<String>,
@@ -14,7 +15,7 @@ class DeleteInfo private constructor(
   override val operationId: String?,
   override val deprecated: Boolean,
   override val parameters: List<Parameter>
-) : MethodInfo {
+) : MethodInfoWithRequest {
 
   companion object {
     fun builder(init: Builder.() -> Unit): DeleteInfo {
@@ -24,8 +25,9 @@ class DeleteInfo private constructor(
     }
   }
 
-  class Builder : MethodInfo.Builder<DeleteInfo>() {
+  class Builder : MethodInfoWithRequest.Builder<DeleteInfo>() {
     override fun build() = DeleteInfo(
+      request = request,
       response = response ?: error("Response info must be present"),
       errors = errors,
       tags = tags,

@@ -78,10 +78,10 @@
           "someB": {
             "oneOf": [
               {
-                "type": "null"
+                "$ref": "#/components/schemas/Something"
               },
               {
-                "$ref": "#/components/schemas/Something"
+                "type": "null"
               }
             ]
           }
