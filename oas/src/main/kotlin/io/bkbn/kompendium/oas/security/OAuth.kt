@@ -3,9 +3,11 @@ package io.bkbn.kompendium.oas.security
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class OAuth(val description: String? = null, val flows: Flows) : SecuritySchema {
+data class OAuth(
+  val description: String? = null,
+  val flows: Flows,
   val type: String = "oauth2"
-
+) : SecuritySchema {
   @Serializable
   data class Flows(
     val implicit: Implicit? = null,

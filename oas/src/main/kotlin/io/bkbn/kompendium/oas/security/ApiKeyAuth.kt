@@ -5,9 +5,11 @@ import kotlinx.serialization.Serializable
 // TODO... is there even an official ktor api auth mechanism??
 
 @Serializable
-class ApiKeyAuth private constructor(val `in`: String, val name: String) : SecuritySchema {
+class ApiKeyAuth private constructor(
+  val `in`: String,
+  val name: String,
   val type: String = "apiKey"
-
+) : SecuritySchema {
   constructor(location: ApiKeyLocation, name: String) : this(location.value, name)
 
   enum class ApiKeyLocation(val value: String) {
