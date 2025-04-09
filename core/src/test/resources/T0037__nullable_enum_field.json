@@ -57,14 +57,8 @@
         "type": "object",
         "properties": {
           "a": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TestEnum"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/TestEnum",
+            "nullable": true
           }
         },
         "required": []

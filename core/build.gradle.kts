@@ -1,20 +1,11 @@
 plugins {
   kotlin("jvm")
   kotlin("plugin.serialization")
-  id("io.bkbn.sourdough.library.jvm")
   id("io.gitlab.arturbosch.detekt")
   id("com.adarshr.test-logger")
-  id("com.vanniktech.maven.publish")
   id("java-library")
-  id("signing")
   id("java-test-fixtures")
   id("org.jetbrains.kotlinx.kover")
-}
-
-sourdoughLibrary {
-  libraryName.set("Kompendium Core")
-  libraryDescription.set("Core functionality for the Kompendium library")
-  compilerArgs.set(listOf("-opt-in=kotlin.RequiresOptIn"))
 }
 
 dependencies {

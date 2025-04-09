@@ -1,14 +1,8 @@
 {
-  "oneOf": [
-    {
-      "additionalProperties": {
-        "type": "number",
-        "format": "int32"
-      },
-      "type": "object"
-    },
-    {
-      "type": "null"
-    }
-  ]
+  "additionalProperties": {
+    "type": "number",
+    "format": "int32"
+  },
+  "type": "object",
+  "nullable": true
 }

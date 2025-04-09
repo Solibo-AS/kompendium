@@ -1,18 +1,10 @@
 plugins {
   kotlin("jvm")
   kotlin("plugin.serialization")
-  id("io.bkbn.sourdough.library.jvm")
   id("io.gitlab.arturbosch.detekt")
   id("com.adarshr.test-logger")
-  id("com.vanniktech.maven.publish")
   id("java-library")
-  id("signing")
   id("org.jetbrains.kotlinx.kover")
-}
-
-sourdoughLibrary {
-  libraryName.set("Kompendium Resources")
-  libraryDescription.set("Supplemental library for Kompendium offering support for Ktor's Resources API")
 }
 
 dependencies {

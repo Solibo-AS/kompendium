@@ -57,35 +57,17 @@
         "type": "object",
         "properties": {
           "metadata": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/ProfileMetadataUpdateRequest"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/ProfileMetadataUpdateRequest",
+            "nullable": true
           },
           "mood": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "string",
+            "nullable": true
           },
           "viewCount": {
-            "oneOf": [
-              {
-                "type": "number",
-                "format": "int64"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "number",
+            "format": "int64",
+            "nullable": true
           }
         },
         "required": []
@@ -94,24 +76,12 @@
         "type": "object",
         "properties": {
           "isPrivate": {
-            "oneOf": [
-              {
-                "type": "boolean"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "boolean",
+            "nullable": true
           },
           "otherThing": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "string",
+            "nullable": true
           }
         },
         "required": []

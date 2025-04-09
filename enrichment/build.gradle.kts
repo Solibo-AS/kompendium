@@ -1,18 +1,9 @@
 plugins {
   kotlin("jvm")
-  id("io.bkbn.sourdough.library.jvm")
   id("io.gitlab.arturbosch.detekt")
   id("com.adarshr.test-logger")
-  id("com.vanniktech.maven.publish")
   id("java-library")
-  id("signing")
   id("org.jetbrains.kotlinx.kover")
-}
-
-sourdoughLibrary {
-  libraryName.set("Kompendium Type Enrichment")
-  libraryDescription.set("Utility library for creating portable type enrichments")
-  compilerArgs.set(listOf("-opt-in=kotlin.RequiresOptIn"))
 }
 
 dependencies {

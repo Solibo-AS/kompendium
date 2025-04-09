@@ -76,14 +76,8 @@
             "$ref": "#/components/schemas/Something"
           },
           "someB": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Something"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/Something",
+            "nullable": true
           }
         },
         "required": [

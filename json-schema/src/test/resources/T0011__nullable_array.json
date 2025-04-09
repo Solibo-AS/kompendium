@@ -1,14 +1,8 @@
 {
-  "oneOf": [
-    {
-      "items": {
-        "type": "number",
-        "format": "int32"
-      },
-      "type": "array"
-    },
-    {
-      "type": "null"
-    }
-  ]
+  "items": {
+    "type": "number",
+    "format": "int32"
+  },
+  "type": "array",
+  "nullable": true
 }
