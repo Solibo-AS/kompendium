@@ -39,11 +39,13 @@ fun main() {
 
 private fun Application.mainModule() {
   install(ContentNegotiation) {
-    json(Json {
-      serializersModule = KompendiumSerializersModule.module
-      encodeDefaults = true
-      explicitNulls = false
-    })
+    json(
+      Json {
+        serializersModule = KompendiumSerializersModule.module
+        encodeDefaults = true
+        explicitNulls = false
+      }
+    )
   }
   install(NotarizedApplication()) {
     spec = { baseSpec }

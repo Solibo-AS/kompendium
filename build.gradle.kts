@@ -1,3 +1,10 @@
+import com.adarshr.gradle.testlogger.TestLoggerExtension
+import com.adarshr.gradle.testlogger.TestLoggerPlugin
+import com.adarshr.gradle.testlogger.theme.ThemeType
+import io.gitlab.arturbosch.detekt.DetektPlugin
+import io.gitlab.arturbosch.detekt.extensions.DetektExtension
+import kotlinx.kover.gradle.plugin.KoverGradlePlugin
+import kotlinx.kover.gradle.plugin.dsl.KoverProjectExtension
 import org.gradle.api.publish.maven.MavenPublication
 import org.gradle.kotlin.dsl.plugin
 import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper
@@ -32,12 +39,45 @@ subprojects {
     plugin<PublishingPlugin>()
     plugin<IdeaPlugin>()
     plugin<MavenPublishPlugin>()
+    plugin<DetektPlugin>()
+    plugin<KoverGradlePlugin>()
   }
 
   signing {
     useGpgCmd()
 
     sign(publishing.publications)
+  }
+
+  configure<DetektExtension> {
+    config.setFrom("${rootProject.projectDir}/detekt.yml")
+    buildUponDefaultConfig = true
+    autoCorrect = true
+  }
+
+  configure<KoverProjectExtension> {
+    useJacoco()
+  }
+
+  plugins.withType<TestLoggerPlugin> {
+    extensions.configure(TestLoggerExtension::class.java) {
+      theme = ThemeType.MOCHA
+      logLevel = LogLevel.LIFECYCLE
+      showExceptions = true
+      showStackTraces = true
+      showFullStackTraces = false
+      showCauses = true
+      slowThreshold = 2000
+      showSummary = true
+      showSimpleNames = false
+      showPassed = true
+      showSkipped = true
+      showFailed = true
+      showStandardStreams = false
+      showPassedStandardStreams = true
+      showSkippedStandardStreams = true
+      showFailedStandardStreams = true
+    }
   }
 
   publishing {

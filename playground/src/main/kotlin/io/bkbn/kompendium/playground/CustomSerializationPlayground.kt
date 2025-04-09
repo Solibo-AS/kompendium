@@ -45,11 +45,13 @@ private val CustomJsonEncoder = Json {
 
 private fun Application.mainModule() {
   install(ContentNegotiation) {
-    json(Json {
-      serializersModule = KompendiumSerializersModule.module
-      encodeDefaults = true
-      explicitNulls = true
-    })
+    json(
+      Json {
+        serializersModule = KompendiumSerializersModule.module
+        encodeDefaults = true
+        explicitNulls = true
+      }
+    )
   }
   install(NotarizedApplication()) {
     spec = {

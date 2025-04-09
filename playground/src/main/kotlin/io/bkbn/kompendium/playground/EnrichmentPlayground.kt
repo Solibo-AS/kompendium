@@ -1,6 +1,5 @@
 package io.bkbn.kompendium.playground
 
-import io.bkbn.kompendium.core.metadata.GetInfo
 import io.bkbn.kompendium.core.metadata.PostInfo
 import io.bkbn.kompendium.core.plugin.NotarizedApplication
 import io.bkbn.kompendium.core.plugin.NotarizedRoute
@@ -11,24 +10,22 @@ import io.bkbn.kompendium.enrichment.NumberEnrichment
 import io.bkbn.kompendium.enrichment.ObjectEnrichment
 import io.bkbn.kompendium.enrichment.StringEnrichment
 import io.bkbn.kompendium.json.schema.KotlinXSchemaConfigurator
-import io.bkbn.kompendium.json.schema.definition.TypeDefinition
-import io.bkbn.kompendium.oas.payload.Parameter
 import io.bkbn.kompendium.oas.serialization.KompendiumSerializersModule
 import io.bkbn.kompendium.playground.util.ExampleRequest
 import io.bkbn.kompendium.playground.util.ExampleResponse
-import io.bkbn.kompendium.playground.util.ExceptionResponse
 import io.bkbn.kompendium.playground.util.InnerRequest
 import io.bkbn.kompendium.playground.util.Util.baseSpec
 import io.ktor.http.HttpStatusCode
 import io.ktor.serialization.kotlinx.json.json
 import io.ktor.server.application.Application
-import io.ktor.server.application.call
 import io.ktor.server.application.install
 import io.ktor.server.cio.CIO
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.server.response.respond
-import io.ktor.server.routing.*
+import io.ktor.server.routing.Route
+import io.ktor.server.routing.post
+import io.ktor.server.routing.routing
 import kotlinx.serialization.json.Json
 
 fun main() {
@@ -41,11 +38,13 @@ fun main() {
 
 private fun Application.mainModule() {
   install(ContentNegotiation) {
-    json(Json {
-      serializersModule = KompendiumSerializersModule.module
-      encodeDefaults = true
-      explicitNulls = false
-    })
+    json(
+      Json {
+        serializersModule = KompendiumSerializersModule.module
+        encodeDefaults = true
+        explicitNulls = false
+      }
+    )
   }
   install(NotarizedApplication()) {
     spec = { baseSpec }
@@ -80,7 +79,9 @@ private val testEnrichment = ObjectEnrichment("testerino") {
       description = "A good but old field"
       InnerRequest::d {
         NumberEnrichment("blahblah") {
+          @Suppress("MagicNumber")
           exclusiveMinimum = 1.1
+          @Suppress("MagicNumber")
           exclusiveMaximum = 10.0
           description = "THE BIG D"
         }
@@ -110,59 +111,6 @@ private fun Route.enrichedDocumentation() {
         responseCode(HttpStatusCode.OK)
         responseType(enrichment = testResponseEnrichment)
         description("This is the response")
-      }
-    }
-  }
-}
-
-private fun Route.idDocumentation() {
-  install(NotarizedRoute()) {
-    parameters = listOf(
-      Parameter(
-        name = "id",
-        `in` = Parameter.Location.path,
-        schema = TypeDefinition.STRING
-      )
-    )
-    get = GetInfo.builder {
-      summary("Get user by id")
-      description("A very neat endpoint!")
-      response {
-        responseCode(HttpStatusCode.OK)
-        responseType<ExampleResponse>()
-        description("Will return whether or not the user is real 😱")
-      }
-
-      canRespond {
-        responseType<ExceptionResponse>()
-        responseCode(HttpStatusCode.NotFound)
-        description("Indicates that a user with this id does not exist")
-      }
-    }
-  }
-}
-
-private fun Route.profileDocumentation() {
-  install(NotarizedRoute()) {
-    parameters = listOf(
-      Parameter(
-        name = "id",
-        `in` = Parameter.Location.path,
-        schema = TypeDefinition.STRING
-      )
-    )
-    get = GetInfo.builder {
-      summary("Get a users profile")
-      description("A cool endpoint!")
-      response {
-        responseCode(HttpStatusCode.OK)
-        responseType<ExampleResponse>()
-        description("Returns user profile information")
-      }
-      canRespond {
-        responseType<ExceptionResponse>()
-        responseCode(HttpStatusCode.NotFound)
-        description("Indicates that a user with this id does not exist")
       }
     }
   }

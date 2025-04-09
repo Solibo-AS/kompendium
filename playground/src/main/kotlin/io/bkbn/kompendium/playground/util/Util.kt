@@ -5,7 +5,6 @@ import io.bkbn.kompendium.oas.info.Contact
 import io.bkbn.kompendium.oas.info.Info
 import io.bkbn.kompendium.oas.info.License
 import io.bkbn.kompendium.oas.server.Server
-import kotlinx.serialization.ExperimentalSerializationApi
 import java.net.URI
 
 object Util {
@@ -36,5 +35,4 @@ object Util {
       )
     )
   )
-
 }

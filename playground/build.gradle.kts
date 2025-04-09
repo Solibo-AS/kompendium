@@ -16,6 +16,9 @@ dependencies {
   implementation(projects.kompendiumResources)
   implementation(projects.kompendiumProtobufJavaConverter)
 
+  // Versions
+  val detektVersion: String by project
+
   // Ktor
   val kotlinSerializeVersion: String by project
   val ktorVersion: String by project
@@ -46,4 +49,7 @@ dependencies {
   implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.2")
 
   implementation("joda-time:joda-time:2.14.0")
+
+  // Formatting
+  detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:$detektVersion")
 }

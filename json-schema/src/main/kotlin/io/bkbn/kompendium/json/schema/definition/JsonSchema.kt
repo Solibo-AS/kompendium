@@ -28,7 +28,7 @@ sealed interface JsonSchema {
         is ArrayDefinition -> ArrayDefinition.serializer().serialize(encoder, value)
         is MapDefinition -> MapDefinition.serializer().serialize(encoder, value)
         is NullableDefinition -> NullableDefinition.serializer().serialize(encoder, value)
-        is OneOfDefinition -> OneOfDefinition.serializer().serialize(encoder, value)
+        is OneOfDefinition -> OneOfDefinitionSerializer.serialize(encoder, value)
         is AnyOfDefinition -> AnyOfDefinition.serializer().serialize(encoder, value)
       }
     }

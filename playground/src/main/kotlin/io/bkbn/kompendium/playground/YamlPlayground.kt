@@ -30,7 +30,6 @@ import io.ktor.server.routing.get
 import io.ktor.server.routing.route
 import io.ktor.server.routing.routing
 import kotlinx.serialization.json.Json
-import kotlinx.serialization.modules.serializersModuleOf
 import kotlinx.serialization.serializer
 
 fun main() {
@@ -41,18 +40,21 @@ fun main() {
   ).start(wait = true)
 }
 
-private val yaml = Yaml(configuration = YamlConfiguration(
-  encodeDefaults = true,
-  // TODO: How to do stuff like serializers module, explicit nulls, etc?
-))
+private val yaml = Yaml(
+  configuration = YamlConfiguration(
+    encodeDefaults = true,
+  )
+)
 
 private fun Application.mainModule() {
   install(ContentNegotiation) {
-    json(Json {
-      serializersModule = KompendiumSerializersModule.module
-      encodeDefaults = true
-      explicitNulls = false
-    })
+    json(
+      Json {
+        serializersModule = KompendiumSerializersModule.module
+        encodeDefaults = true
+        explicitNulls = false
+      }
+    )
   }
   install(NotarizedApplication()) {
     spec = { baseSpec }

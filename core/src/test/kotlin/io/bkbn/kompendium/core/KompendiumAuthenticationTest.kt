@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package io.bkbn.kompendium.core
 
 import dev.forst.ktor.apikey.apiKey
@@ -93,6 +95,7 @@ class KompendiumAuthenticationTest : DescribeSpec({
       ) { customAuthConfig() }
     }
     it("Can provide multiple authentication strategies") {
+      @Suppress("DEPRECATION")
       data class TestAppPrincipal(val key: String) : Principal
       TestHelpers.openApiTestAllSerializers(
         snapshotName = "T0047__multiple_auth_strategies.json",

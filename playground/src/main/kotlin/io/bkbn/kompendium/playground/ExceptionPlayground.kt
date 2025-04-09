@@ -36,11 +36,13 @@ fun main() {
 
 private fun Application.mainModule() {
   install(ContentNegotiation) {
-    json(Json {
-      serializersModule = KompendiumSerializersModule.module
-      encodeDefaults = true
-      explicitNulls = false
-    })
+    json(
+      Json {
+        serializersModule = KompendiumSerializersModule.module
+        encodeDefaults = true
+        explicitNulls = false
+      }
+    )
   }
   install(NotarizedApplication()) {
     spec = { baseSpec }
@@ -57,7 +59,7 @@ private fun Application.mainModule() {
     route("/{id}") {
       locationDocumentation()
       get {
-        throw RuntimeException("This wasn't your fault I promise <3")
+        throw IllegalArgumentException("This wasn't your fault I promise <3")
       }
     }
   }
