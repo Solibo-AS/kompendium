@@ -18,6 +18,7 @@ plugins {
   id("io.bkbn.sourdough.application.jvm") version "0.13.1" apply false
   id("io.bkbn.sourdough.root") version "0.13.1"
   id("org.jetbrains.kotlinx.kover") version "0.9.1"
+  id("com.github.ben-manes.versions") version "0.52.0"
 
   `maven-publish`
   signing

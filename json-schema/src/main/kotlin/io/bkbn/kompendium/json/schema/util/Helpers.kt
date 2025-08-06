@@ -35,7 +35,10 @@ object Helpers {
     if (java.packageName == "java.lang") return simpleName
     if (java.packageName == "java.util") return simpleName
     val pkg = java.packageName
-    return qualifiedName?.replace(pkg, "")?.replace(".", "")
+    return qualifiedName
+      ?.replace("Dto", "")
+      ?.replace(pkg, "")
+      ?.replace(".", "")
   }
 
   private fun genericNameAdapter(type: KType, clazz: KClass<*>): String {

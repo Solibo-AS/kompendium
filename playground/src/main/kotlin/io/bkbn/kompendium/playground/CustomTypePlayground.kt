@@ -13,7 +13,6 @@ import io.bkbn.kompendium.playground.util.Util.baseSpec
 import io.ktor.http.HttpStatusCode
 import io.ktor.serialization.kotlinx.json.json
 import io.ktor.server.application.Application
-import io.ktor.server.application.call
 import io.ktor.server.application.install
 import io.ktor.server.cio.CIO
 import io.ktor.server.engine.embeddedServer
@@ -23,11 +22,12 @@ import io.ktor.server.routing.Route
 import io.ktor.server.routing.get
 import io.ktor.server.routing.route
 import io.ktor.server.routing.routing
-import kotlin.reflect.typeOf
-import kotlinx.datetime.Clock
-import kotlinx.datetime.Instant
 import kotlinx.serialization.json.Json
 import java.util.UUID
+import kotlin.reflect.typeOf
+import kotlin.time.Clock
+import kotlin.time.ExperimentalTime
+import kotlin.time.Instant
 
 fun main() {
   embeddedServer(
@@ -37,6 +37,7 @@ fun main() {
   ).start(wait = true)
 }
 
+@OptIn(ExperimentalTime::class)
 private fun Application.mainModule() {
   install(ContentNegotiation) {
     json(

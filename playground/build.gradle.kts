@@ -37,16 +37,16 @@ dependencies {
 
   // Logging
   implementation("org.apache.logging.log4j:log4j-api-kotlin:1.5.0")
-  implementation("org.apache.logging.log4j:log4j-api:2.24.3")
-  implementation("org.apache.logging.log4j:log4j-core:2.24.3")
+  implementation("org.apache.logging.log4j:log4j-api:2.25.1")
+  implementation("org.apache.logging.log4j:log4j-core:2.25.1")
   implementation("org.slf4j:slf4j-api:2.0.17")
   implementation("org.slf4j:slf4j-simple:2.0.17")
 
   // YAML
-  implementation("com.charleskorn.kaml:kaml:0.74.0")
+  implementation("com.charleskorn.kaml:kaml:0.83.0")
 
   implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$kotlinSerializeVersion")
-  implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.2")
+  implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.7.1")
 
   implementation("joda-time:joda-time:2.14.0")
 

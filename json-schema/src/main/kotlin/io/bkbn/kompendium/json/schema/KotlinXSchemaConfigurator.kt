@@ -46,6 +46,6 @@ class KotlinXSchemaConfigurator : SchemaConfigurator {
 
   private fun determineTypeQualifier(type: KType): String {
     val nameOverrideAnnotation = (type.classifier as KClass<*>).findAnnotation<SerialName>()
-    return nameOverrideAnnotation?.value ?: (type.classifier as KClass<*>).qualifiedName!!
+    return (nameOverrideAnnotation?.value ?: (type.classifier as KClass<*>).qualifiedName!!).replace("Dto", "")
   }
 }
