@@ -1,4 +1,4 @@
-rootProject.name = "kompendium"
+rootProject.name = "solibo-kompendium"
 
 include("core")
 include("enrichment")
