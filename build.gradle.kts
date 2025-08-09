@@ -123,7 +123,7 @@ class BuildUtils {
   fun calculateVersion(version: String, branch: String): String {
     return when {
       branch == "develop" -> "$version-SNAPSHOT"
-      branch == "main" -> version
+      branch == "master" -> version
       branch.startsWith("release", ignoreCase = true) -> version
       else -> "$version-$branch"
     }
