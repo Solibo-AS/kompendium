@@ -13,6 +13,10 @@ import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper
 val buildUtils = BuildUtils()
 val branchName = buildUtils.gitBranch()
 
+repositories {
+  mavenCentral()
+}
+
 plugins {
   kotlin("jvm") version "2.2.0" apply false
   kotlin("plugin.serialization") version "2.2.0" apply false

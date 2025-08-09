@@ -17,8 +17,8 @@ dependencies {
 
   // IMPLEMENTATION
 
-  api(projects.kompendiumOas)
-  api(projects.kompendiumJsonSchema)
+  api(projects.soliboKompendiumOas)
+  api(projects.soliboKompendiumJsonSchema)
 
   implementation("io.ktor:ktor-server-core:$ktorVersion")
   implementation("io.ktor:ktor-server-cio:$ktorVersion")

@@ -14,7 +14,7 @@ dependencies {
   val kotlinSerializeVersion: String by project
 
   // Kompendium
-  api(projects.kompendiumEnrichment)
+  api(projects.soliboKompendiumEnrichment)
 
   implementation("org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion")
   implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$kotlinSerializeVersion")
@@ -22,7 +22,7 @@ dependencies {
   // Formatting
   detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:$detektVersion")
 
-  testImplementation(testFixtures(projects.kompendiumCore))
+  testImplementation(testFixtures(projects.soliboKompendiumCore))
 }
 
 testing {

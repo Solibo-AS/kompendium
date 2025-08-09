@@ -14,13 +14,13 @@ dependencies {
 
   // IMPLEMENTATION
 
-  implementation(projects.kompendiumCore)
+  implementation(projects.soliboKompendiumCore)
   implementation("io.ktor:ktor-server-core:$ktorVersion")
   implementation("io.ktor:ktor-server-resources:$ktorVersion")
 
   // TESTING
 
-  testImplementation(testFixtures(projects.kompendiumCore))
+  testImplementation(testFixtures(projects.soliboKompendiumCore))
 
   // Formatting
   detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:$detektVersion")

@@ -13,7 +13,7 @@ dependencies {
   // Formatting
   detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:$detektVersion")
 
-  testImplementation(testFixtures(projects.kompendiumCore))
+  testImplementation(testFixtures(projects.soliboKompendiumCore))
 }
 
 testing {

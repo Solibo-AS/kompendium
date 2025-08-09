@@ -12,9 +12,9 @@ sourdoughApp {
 
 dependencies {
   // IMPLEMENTATION
-  implementation(projects.kompendiumCore)
-  implementation(projects.kompendiumResources)
-  implementation(projects.kompendiumProtobufJavaConverter)
+  implementation(projects.soliboKompendiumCore)
+  implementation(projects.soliboKompendiumResources)
+  implementation(projects.soliboKompendiumProtobufJavaConverter)
 
   // Versions
   val detektVersion: String by project
