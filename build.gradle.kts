@@ -85,9 +85,9 @@ subprojects {
 
     pom {
       name.set(project.name)
-      description.set("Wrapper of Digipost API")
+      description.set("Kompendium Fork")
       inceptionYear.set("2025")
-      url.set("https://github.com/Solibo-AS/solibo-digipost")
+      url.set("https://github.com/Solibo-AS/kompendium")
       licenses {
         license {
           name.set("The MIT License (MIT)")
@@ -103,9 +103,9 @@ subprojects {
         }
       }
       scm {
-        url.set("https://github.com/Solibo-AS/solibo-digipost")
-        connection.set("org-88184710@github.com:Solibo-AS/solibo-digipost.git")
-        developerConnection.set("org-88184710@github.com:Solibo-AS/solibo-digipost.git")
+        url.set("https://github.com/Solibo-AS/kompendium")
+        connection.set("org-88184710@github.com:Solibo-AS/kompendium.git")
+        developerConnection.set("org-88184710@github.com:Solibo-AS/kompendium.git")
       }
     }
 
