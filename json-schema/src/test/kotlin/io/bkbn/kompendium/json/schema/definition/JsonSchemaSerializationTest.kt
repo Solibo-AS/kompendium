@@ -106,4 +106,50 @@ class JsonSchemaSerializationTest : DescribeSpec({
       """.trimIndent()
     }
   }
+
+  describe("TypeDefinition with Discriminator") {
+    it("serializes correctly") {
+      val schema: JsonSchema = TypeDefinition(
+        type = "object",
+        properties = mapOf(
+          "type" to TypeDefinition.STRING,
+          "id" to TypeDefinition.LONG
+        ),
+        required = setOf("type", "id"),
+        discriminator = Discriminator(
+          propertyName = "type",
+          mapping = mapOf(
+            "person" to "#/components/schemas/PersonResident",
+            "org" to "#/components/schemas/OrganizationResident"
+          )
+        )
+      )
+      val result = json.encodeToString(JsonSchema.serializer(), schema)
+      result shouldEqualJson """
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "id": {
+              "type": "number",
+              "format": "int64"
+            }
+          },
+          "required": [
+            "type",
+            "id"
+          ],
+          "discriminator": {
+            "propertyName": "type",
+            "mapping": {
+              "person": "#/components/schemas/PersonResident",
+              "org": "#/components/schemas/OrganizationResident"
+            }
+          }
+        }
+      """.trimIndent()
+    }
+  }
 })

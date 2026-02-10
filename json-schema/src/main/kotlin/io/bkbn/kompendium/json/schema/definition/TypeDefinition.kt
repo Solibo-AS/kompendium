@@ -37,6 +37,7 @@ data class TypeDefinition(
   // Object
   val maxProperties: Int? = null,
   val minProperties: Int? = null,
+  val discriminator: Discriminator? = null,
 ) : JsonSchema {
 
   fun withDefault(default: Any): TypeDefinition = this.copy(default = default)
