@@ -30,6 +30,7 @@ sealed interface JsonSchema {
         is NullableDefinition -> NullableDefinition.serializer().serialize(encoder, value)
         is OneOfDefinition -> OneOfDefinitionSerializer.serialize(encoder, value)
         is AnyOfDefinition -> AnyOfDefinition.serializer().serialize(encoder, value)
+        is AllOfDefinition -> AllOfDefinition.serializer().serialize(encoder, value)
       }
     }
   }

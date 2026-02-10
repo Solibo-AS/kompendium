@@ -18,6 +18,7 @@ data class OneOfDefinition(
   val oneOf: Set<JsonSchema>,
   override val deprecated: Boolean? = null,
   override val description: String? = null,
+  val discriminator: Discriminator? = null,
 ) : JsonSchema {
   constructor(vararg types: JsonSchema) : this(types.toSet())
 }
@@ -44,6 +45,15 @@ object OneOfDefinitionSerializer : KSerializer<OneOfDefinition> {
             put("nullable", JsonPrimitive(true))
             value.description?.let { put("description", JsonPrimitive(it)) }
             value.deprecated?.let { put("deprecated", JsonPrimitive(it)) }
+            value.discriminator?.let {
+              put(
+                "discriminator",
+                jsonEncoder.json.encodeToJsonElement(
+                  Discriminator.serializer(),
+                  it
+                )
+              )
+            }
           }
         )
       }
@@ -60,6 +70,15 @@ object OneOfDefinitionSerializer : KSerializer<OneOfDefinition> {
             put("oneOf", JsonArray(oneOfJson))
             value.description?.let { put("description", JsonPrimitive(it)) }
             value.deprecated?.let { put("deprecated", JsonPrimitive(it)) }
+            value.discriminator?.let {
+              put(
+                "discriminator",
+                jsonEncoder.json.encodeToJsonElement(
+                  Discriminator.serializer(),
+                  it
+                )
+              )
+            }
           }
         )
       }
