@@ -60,7 +60,7 @@
             "type": "string"
           },
           "c": {
-            "type": "number",
+            "type": "integer",
             "format": "int32"
           },
           "z": {

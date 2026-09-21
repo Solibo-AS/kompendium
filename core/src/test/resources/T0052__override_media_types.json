@@ -85,7 +85,7 @@
         "properties": {
           "aaa": {
             "items": {
-              "type": "number",
+              "type": "integer",
               "format": "int64"
             },
             "type": "array"

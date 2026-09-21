@@ -68,7 +68,7 @@
         "type": "boolean"
       },
       "Int": {
-        "type": "number",
+        "type": "integer",
         "format": "int32"
       }
     },

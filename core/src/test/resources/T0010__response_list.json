@@ -61,7 +61,7 @@
           "name": "aa",
           "in": "query",
           "schema": {
-            "type": "number",
+            "type": "integer",
             "format": "int32"
           },
           "required": true,

@@ -96,7 +96,7 @@
           "name": "aa",
           "in": "query",
           "schema": {
-            "type": "number",
+            "type": "integer",
             "format": "int32"
           },
           "required": true,
@@ -126,7 +126,7 @@
             "type": "string"
           },
           "id": {
-            "type": "number",
+            "type": "integer",
             "format": "int32"
           }
         },
@@ -142,7 +142,7 @@
             "type": "string"
           },
           "b": {
-            "type": "number",
+            "type": "integer",
             "format": "int32"
           },
           "c": {

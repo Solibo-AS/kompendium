@@ -58,29 +58,29 @@
         "properties": {
           "content": {
             "items": {
-              "type": "number",
+              "type": "integer",
               "format": "int32"
             },
             "type": "array"
           },
           "number": {
-            "type": "number",
+            "type": "integer",
             "format": "int32"
           },
           "numberOfElements": {
-            "type": "number",
+            "type": "integer",
             "format": "int32"
           },
           "size": {
-            "type": "number",
+            "type": "integer",
             "format": "int32"
           },
           "totalElements": {
-            "type": "number",
+            "type": "integer",
             "format": "int64"
           },
           "totalPages": {
-            "type": "number",
+            "type": "integer",
             "format": "int32"
           }
         },

@@ -60,7 +60,7 @@
             "type": "string"
           },
           "id": {
-            "type": "number",
+            "type": "integer",
             "format": "int32",
             "multipleOf": 2,
             "maximum": 100,

@@ -43,13 +43,15 @@ data class TypeDefinition(
   fun withDefault(default: Any): TypeDefinition = this.copy(default = default)
 
   companion object {
+    // int32 and int64 are registered formats for "integer", not "number". Typing them as
+    // "number" makes generators emit floating point for Int and Long fields.
     val INT = TypeDefinition(
-      type = "number",
+      type = "integer",
       format = "int32"
     )
 
     val LONG = TypeDefinition(
-      type = "number",
+      type = "integer",
       format = "int64"
     )
 

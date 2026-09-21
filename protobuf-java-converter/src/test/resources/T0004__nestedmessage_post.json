@@ -77,43 +77,43 @@
             "format": "float"
           },
           "myTestInt32": {
-            "type": "number",
+            "type": "integer",
             "format": "int32"
           },
           "myTestInt64": {
-            "type": "number",
+            "type": "integer",
             "format": "int64"
           },
           "myTestUint32": {
-            "type": "number",
+            "type": "integer",
             "format": "int32"
           },
           "myTestUint64": {
-            "type": "number",
+            "type": "integer",
             "format": "int64"
           },
           "myTestSint32": {
-            "type": "number",
+            "type": "integer",
             "format": "int32"
           },
           "myTestSint64": {
-            "type": "number",
+            "type": "integer",
             "format": "int64"
           },
           "myTestFixed32": {
-            "type": "number",
+            "type": "integer",
             "format": "int32"
           },
           "myTestFixed64": {
-            "type": "number",
+            "type": "integer",
             "format": "int64"
           },
           "myTestSfixed32": {
-            "type": "number",
+            "type": "integer",
             "format": "int32"
           },
           "myTestSfixed64": {
-            "type": "number",
+            "type": "integer",
             "format": "int64"
           },
           "myTestBool": {

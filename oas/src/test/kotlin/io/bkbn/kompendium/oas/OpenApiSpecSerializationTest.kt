@@ -64,7 +64,7 @@ class OpenApiSpecSerializationTest : DescribeSpec({
                 "type": "object",
                 "properties": {
                   "id": {
-                    "type": "number",
+                    "type": "integer",
                     "format": "int64"
                   },
                   "country": {

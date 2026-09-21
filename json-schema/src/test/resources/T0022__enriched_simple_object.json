@@ -6,7 +6,7 @@
       "description": "This is a simple description"
     },
     "b": {
-      "type": "number",
+      "type": "integer",
       "format": "int32",
       "deprecated": true
     },

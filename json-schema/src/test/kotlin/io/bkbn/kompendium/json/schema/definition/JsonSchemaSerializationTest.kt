@@ -133,7 +133,7 @@ class JsonSchemaSerializationTest : DescribeSpec({
               "type": "string"
             },
             "id": {
-              "type": "number",
+              "type": "integer",
               "format": "int64"
             }
           },

@@ -93,7 +93,7 @@
           "name": "page",
           "in": "path",
           "schema": {
-            "type": "number",
+            "type": "integer",
             "format": "int32"
           },
           "required": true,

@@ -75,7 +75,7 @@
         "type": "object",
         "properties": {
           "result": {
-            "type": "number",
+            "type": "integer",
             "format": "int32"
           }
         },

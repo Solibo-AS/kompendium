@@ -75,7 +75,7 @@
         "type": "object",
         "properties": {
           "b": {
-            "type": "number",
+            "type": "integer",
             "format": "int32"
           },
           "type": {

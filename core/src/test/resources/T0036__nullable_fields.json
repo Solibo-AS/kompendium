@@ -65,7 +65,7 @@
             "nullable": true
           },
           "viewCount": {
-            "type": "number",
+            "type": "integer",
             "format": "int64",
             "nullable": true
           }
