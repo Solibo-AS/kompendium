@@ -64,6 +64,7 @@
             "format": "double"
           },
           "type": {
+            "type": "string",
             "enum": [
               "io.bkbn.kompendium.core.fixtures.Bibbity"
             ]
@@ -83,6 +84,7 @@
             "format": "double"
           },
           "type": {
+            "type": "string",
             "enum": [
               "io.bkbn.kompendium.core.fixtures.Gibbity"
             ]

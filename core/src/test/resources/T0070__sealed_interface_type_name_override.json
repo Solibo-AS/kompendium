@@ -60,6 +60,7 @@
             "type": "string"
           },
           "type": {
+            "type": "string",
             "enum": [
               "chillax"
             ]
@@ -78,6 +79,7 @@
             "format": "int32"
           },
           "type": {
+            "type": "string",
             "enum": [
               "maximize"
             ]

@@ -66,6 +66,7 @@
         }
       },
       "Corpus": {
+        "type": "string",
         "enum": [
           "CORPUS_UNSPECIFIED",
           "CORPUS_UNIVERSAL",

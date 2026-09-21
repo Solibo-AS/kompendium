@@ -154,6 +154,7 @@
         ]
       },
       "SimpleEnum": {
+        "type": "string",
         "enum": [
           "ONE",
           "TWO"
