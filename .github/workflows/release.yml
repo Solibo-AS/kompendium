@@ -6,20 +6,19 @@ on:
       - released
 jobs:
   publish-to-maven-central:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
         with:
-          distribution: 'adopt'
+          distribution: 'corretto'
           java-version: '21'
+      # gradle/actions instead of burrunan/gradle-cache-action, which the organization's action
+      # allow-list rejects.
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v5
       - name: Publish to Maven Central
-        uses: burrunan/gradle-cache-action@v2
-        with:
-          gradle-version: wrapper
-          arguments: publishAndReleaseToMavenCentral --no-configuration-cache --stacktrace
-          properties: |
-            release=true
+        run: ./gradlew publishAndReleaseToMavenCentral --no-configuration-cache --stacktrace -Prelease=true
         env:
           ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
           ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
