@@ -10,11 +10,12 @@ jobs:
         with:
           distribution: 'corretto'
           java-version: '21'
+      # gradle/actions instead of burrunan/gradle-cache-action, which the organization's action
+      # allow-list rejects: these checks failed at startup without running.
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v5
       - name: Lint
-        uses: burrunan/gradle-cache-action@v2
-        with:
-          gradle-version: wrapper
-          arguments: detekt
+        run: ./gradlew detekt
   unit:
     runs-on: ubuntu-24.04-arm
     steps:
@@ -24,8 +25,7 @@ jobs:
         with:
           distribution: 'corretto'
           java-version: '21'
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v5
       - name: Unit Tests
-        uses: burrunan/gradle-cache-action@v2
-        with:
-          gradle-version: wrapper
-          arguments: test koverHtmlReport
+        run: ./gradlew test koverHtmlReport
