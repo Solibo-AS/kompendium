@@ -1,5 +1,9 @@
 name: Run PR Checks
 on: pull_request
+# A new commit on the pull request replaces the run for the previous one.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   lint:
     runs-on: ubuntu-24.04-arm
