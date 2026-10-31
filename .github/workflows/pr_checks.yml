@@ -31,5 +31,7 @@ jobs:
           java-version: '21'
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v5
+      # The runner has 8 GB. Kover's HTML reports ran the 2 GB daemon from gradle.properties out of
+      # heap on 2026-10-31.
       - name: Unit Tests
-        run: ./gradlew test koverHtmlReport
+        run: ./gradlew test koverHtmlReport -Dorg.gradle.jvmargs=-Xmx4g
