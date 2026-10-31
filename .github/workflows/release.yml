@@ -6,12 +6,12 @@ on:
       - released
 jobs:
   publish-to-maven-central:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
         with:
-          distribution: 'adopt'
+          distribution: 'corretto'
           java-version: '21'
       - name: Publish to Maven Central
         uses: burrunan/gradle-cache-action@v2
